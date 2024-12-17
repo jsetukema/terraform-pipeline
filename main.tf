@@ -22,6 +22,7 @@ resource "aws_instance" "ec2" {
             key_name = "devops-key-pair"
             vpc_security_group_ids = [aws_security_group.ec2_SecurityGroups.id]
 }
+
 output "ec2_ip" {
             value = [aws_instance.ec2.*.private_ip]
 }
@@ -32,5 +33,5 @@ output "ec2_name" {
             value = [aws_instance.ec2.*.tags.Name]
 }
 output "ec2_instance_id" {
-            value = aws_instance.ec2.*.id
+            value = aws_instance.ec2.id
 }
